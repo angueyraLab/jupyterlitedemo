@@ -8,23 +8,24 @@
     Updated: November 2024 (Angueyra)
         - Added plotting routines for Yoshimatsu et al, acute zone data and notebook
         To build wheel:
-        create directory "juanPlot"
         copy .py function as "__init__.py"
-        create "test.py"
+        create directory "juanPlot"
+        create "test.py" inside "juanPlot"
             from juanPlot.__init__ import *
 
             def func_test():
                 print("Successfully Imported test.py file")
-        create "setup.py"
+        create "setup.py" inside "juanPlot"
             from setuptools import setup
 
             setup(
                 name='juanPlot',
                 version='0a3',
                 packages=['juanPlot'],
+                options={"bdist_wheel": {"universal": True}},
             )
         run
-            ```python setup.py bdist_wheel --universal;```
+            ```python setup.py bdist_wheel;```
         Then
             ```cp ./dist/juanPlot-0a3-py2.py3-none-any.whl ~/Documents/Repositories/drRNAseq/content```
 """
